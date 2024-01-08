@@ -3,11 +3,12 @@ on:
   push:
     branches:
       - test/devops
-  pull_request:
-    types: [closed]
-    branches:
       - main
-      - cloud-deploy
+  # pull_request:
+  #   types: [closed]
+  #   branches:
+  #     - main
+  #     - cloud-deploy
 
 jobs:
     build:
