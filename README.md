@@ -4,10 +4,17 @@ The server copies files in the thumbnails folder into its static web files folde
 
 ## How to run
 
-1. Create a docker image using Dockerfile
-2. Run docker image
+1. Go to /src folder.
 
-## Usage
+2. Create a docker image using Dockerfile.
+
+        docker build -t {name} .
+
+3. Run docker image.
+
+        docker run -d -p {port:port} --name {container-name} {image-name}
+
+## How to use
 
 To access a thumbnail:
 
