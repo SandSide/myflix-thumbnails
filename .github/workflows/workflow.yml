@@ -30,19 +30,19 @@ jobs:
                 push: true
                 tags: sandside/myflix:thumbnails
 
-    # deploy:
-    #     needs: build
-    #     runs-on: ubuntu-latest
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
 
-    #     steps:
-    #         - name: Pull and Run Image in VM
-    #           uses: appleboy/ssh-action@master
-    #           with:
-    #             host: ${{ secrets.VM_IP }}
-    #             username: ${{ secrets.VM_USERNAME }}
-    #             key: ${{ secrets.VM_SSH_KEY }}
-    #             script: |
-    #               docker stop myflix-thumbnails
-    #               docker rm myflix-thumbnails
-    #               docker pull sandside/myflix:thumbnails
-    #               docker run -d -p 80:80 --restart=always --name myflix-thumbnails sandside/myflix:thumbnails
+        steps:
+            - name: Pull and Run Image in VM
+              uses: appleboy/ssh-action@master
+              with:
+                host: ${{ secrets.VM_IP }}
+                username: ${{ secrets.VM_USERNAME }}
+                key: ${{ secrets.VM_SSH_KEY }}
+                script: |
+                  docker stop myflix-thumbnails
+                  docker rm myflix-thumbnails
+                  docker pull sandside/myflix:thumbnails
+                  docker run -d -p 80:80 --restart=always --name myflix-thumbnails sandside/myflix:thumbnails
