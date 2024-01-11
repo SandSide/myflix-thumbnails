@@ -3,7 +3,7 @@ on:
   push:
     branches:
       - test/devops
-      - main
+      # - main
   # pull_request:
   #   types: [closed]
   #   branches:
