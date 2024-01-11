@@ -1,21 +1,28 @@
-This repository consists of nginx server which serves static thumbnails.
+## Description 
 
-The server copies files in the thumbnails folder into its static web files folder.
+A microservice apart of `Myflix` project created using Nginx sever to server static images as thumbnails.
 
-## How to run
+## Features
 
-1. Go to /src folder.
+ - **Serve Static Images**: Allows applications to access static images stored on the server.
 
-2. Create a docker image using Dockerfile.
+## Usage
 
-        docker build -t {name} .
+1. Place static videos inside `/thumbnails` folder.
+2. Build and run docker image.
+3. Access videos using `ip:port/thumbnails/{filename}`.
 
-3. Run docker image.
+## Deployment
 
-        docker run -d -p {port:port} --name {container-name} {image-name}
+### Using Docker:
 
-## How to use
+1. Create an docker image from `Dockerfile` in `/src` folder.
 
-To access a thumbnail:
+```bash
+docker build -t {image-name} .
+```
 
-    {ip}/thumbnails/{filename.extension}
+2. Run the docker image.
+
+```bash
+docker run -d -p 5000:5000 --name {container-name} {image-name}
